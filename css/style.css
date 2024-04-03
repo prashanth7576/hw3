@@ -1,0 +1,110 @@
+:root{
+    --color: rgb(236, 237, 220);
+    --primarycolor:rgb(52, 235, 210, 0.6);
+    --secondarycolor:rgba(15, 69, 113, 0.9);
+    --textcolor:black;
+    --navcolor: rgb(250, 163, 163);  
+}
+
+*{
+
+}
+
+body{
+    background-color: var(--primarycolor);
+    color: var(--textcolor);
+    
+    
+   
+  
+
+}
+
+body main{
+    max-width: 80ch;
+    margin-left: 30%;
+
+    
+}
+
+nav{
+    text-align: center;
+    background-color: var(--secondarycolor);
+    padding: 3px;
+    width: auto;
+    margin-left: -8px;
+    
+}
+
+nav p{
+    font-size: 28px;
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--navcolor);
+    margin-left: 35px;
+}
+
+
+
+li{
+
+    list-style: none;
+}
+
+li a{
+    color:var(--color);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    
+    
+   
+}
+
+
+
+
+li{
+    display: inline;
+    margin: 10px;
+}
+
+li:hover{
+    background-color: rgb(204, 168, 168);
+    padding: 5px;
+    border-radius: 10px;
+    
+}
+
+li a:hover{
+    color: #000;
+}
+
+input{
+    height: 25px;
+    width: 15rem;
+    border-radius: 10px;
+}
+
+
+h3{
+    font-size: 20px;
+    margin-left: 30%;
+    
+}
+
+h4{
+  font-size: 17px;  
+}
+
+p{
+    font-size: 17px;
+}
+
+figure{
+    text-align: center;
+}
+
+footer{
+    text-align: center;
+}
