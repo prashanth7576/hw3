@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- <script src="../js/dictionary.js"></script> -->
+    
+</head>
+<body>
+
+    <header>
+
+        <nav>
+    
+            <p> Dictionary </p>
+    
+            <ul>
+                <li> <a href="../index.html"> Home </a> </li>
+                <li> <a href="./pages/blog.html"> Blog </a> </li>
+                <li> <a href="./pages/about.html"> About </a> </li>
+                <li> <a href="#"> Dictionary </a></li>
+            </ul>
+    
+    
+    
+    
+        </nav>
+        
+    </header>
+
+    <br>
+    
+
+    <main>
+        
+        <input type="text"   id="wordInput" placeholder="Enter Word">
+        <ol id="definitionList">
+            
+        </ol>
+
+        
+    </main>
+    
+</body>
+</html>
+
+
+<script>
+
+
+    const wordInput = document.getElementById('wordInput');
+    const definitionList = document.getElementById('definitionList');
+    
+    wordInput.addEventListener('input', fetchDefinitions);
+    
+    async function fetchDefinitions() {
+        const word = wordInput.value.trim();
+        if (word === '') {
+            definitionList.innerHTML = '';
+            return;
+        }
+    
+        
+        try {
+            const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+            const data = await response.json();
+    
+            
+    
+      
+    
+            definitionList.innerHTML = '';
+            data.forEach(entry => {
+                
+                entry.meanings.forEach(meaning => {
+                    
+                    meaning.definitions.forEach(def => {
+                       
+                        
+                    definitionList.innerHTML += `<ol> <li><strong>${meaning.partOfSpeech}</strong>: ${def.definition}</li> </ol> <br>`;
+                });
+                    });
+                });
+            
+        } 
+    
+        catch(error){
+    
+        }
+    }
+        
+    
+    
+    </script>

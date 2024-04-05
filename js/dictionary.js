@@ -1,53 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="./css/style.css">
-    <!-- <script src="./js/dictionary.js"></script> -->
-    
-</head>
-<body>
-
-    <header>
-
-        <nav>
-    
-            <p> Home Page </p>
-    
-            <ul>
-                <li> <a href="index.html"> Home </a> </li>
-                <li> <a href="./pages/blog.html"> Blog </a> </li>
-                <li> <a href="./pages/about.html"> About </a> </li>
-                <li> <a href="./pages/dictionary.html"> Dictionary </a></li>
-            </ul>
-    
-    
-    
-    
-        </nav>
-        
-    </header>
-
-    <br>
-    
-
-    <main>
-        
-        <input type="text"   id="wordInput" placeholder="Enter Word">
-        <ol id="definitionList">
-            
-        </ol>
-
-        
-    </main>
-    
-</body>
-</html>
-
-<script>
 
 
 const wordInput = document.getElementById('wordInput');
@@ -90,7 +40,3 @@ async function fetchDefinitions() {
 
     }
 }
-    
-
-
-</script>
