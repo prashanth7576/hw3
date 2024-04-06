@@ -12,14 +12,9 @@ async function fetchDefinitions() {
         return;
     }
 
-    
     try {
         const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
         const data = await response.json();
-
-        
-
-  
 
         definitionList.innerHTML = '';
         data.forEach(entry => {

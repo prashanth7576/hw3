@@ -36,8 +36,8 @@
 
     <main>
         
-        <input type="text"   id="wordInput" placeholder="Enter Word">
-        <ol id="definitionList">
+        <input type="text"   id="searchMeaning" placeholder="Enter Word">
+        <ol id="meaningList">
             
         </ol>
 
@@ -50,48 +50,33 @@
 
 <script>
 
+    
+    const meaningList = document.getElementById('meaningList');
 
-    const wordInput = document.getElementById('wordInput');
-    const definitionList = document.getElementById('definitionList');
+    document.getElementById('searchMeaning').addEventListener('input', fetchMeanings);
     
-    wordInput.addEventListener('input', fetchDefinitions);
-    
-    async function fetchDefinitions() {
-        const word = wordInput.value.trim();
+    async function fetchMeanings() {
+        const word = searchMeaning.value.trim();
         if (word === '') {
-            definitionList.innerHTML = '';
+            meaningList.innerHTML = '';
             return;
         }
-    
-        
         try {
             const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
             const data = await response.json();
-    
-            
-    
-      
-    
-            definitionList.innerHTML = '';
-            data.forEach(entry => {
-                
-                entry.meanings.forEach(meaning => {
-                    
-                    meaning.definitions.forEach(def => {
-                       
-                        
-                    definitionList.innerHTML += `<ol> <li><strong>${meaning.partOfSpeech}</strong>: ${def.definition}</li> </ol> <br>`;
+            meaningList.innerHTML = '';
+            data.forEach(entry => {    
+              entry.meanings.forEach(meaning => {  
+                    meaning.definitions.forEach(def => {     
+                    meaningList.innerHTML += `<ol> <li><strong>${meaning.partOfSpeech}</strong>: ${def.definition}</li> </ol> <br>`;
                 });
                     });
                 });
             
         } 
-    
         catch(error){
     
         }
     }
-        
-    
     
     </script>
